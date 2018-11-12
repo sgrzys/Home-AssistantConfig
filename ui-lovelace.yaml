@@ -1,0 +1,19 @@
+title: Asystent domowy TV
+views:
+    # View tab title.
+  - title: Dom
+    # Optional unique id for direct access /lovelace/${id}
+    id: dom
+    # Optional background (overwrites the global background).
+    # background: radial-gradient(crimson, orange)
+    # Each view can have a different theme applied. Theme should be 
+    cards:
+        # Entities card will take a list of entities and show their state.
+      - type: entities
+        # Title of the entities card
+        title: Audio
+        # The entities here will be shown in the same order as specified.
+        # Each entry is an entity ID or a map with extra options.
+        entities:
+          - media_player.wbudowany_glosnik
+          - input_text.ais_knowledge_query

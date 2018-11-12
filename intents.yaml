@@ -1,0 +1,316 @@
+﻿VacuumON:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.start
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Zaczynam odkurzać"
+VacuumOFF:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.stop
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Wyłaczam odkurzacz"
+VacuumRTB:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.return_to_base
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Wracam do stacji dokującej"
+VacuumRTB:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.return_to_base
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Wracam do bazy"
+VacuumLocate:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.locate
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Powinien się odezwać."
+VacuumRemoteOn:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.xiaomi_remote_control_start
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Teraz możesz nim sterować."
+VacuumRemoteForward:
+  speech:
+      text: OK
+  action:
+    - service: vacuum.xiaomi_remote_control_move
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        velocity: 0.2
+        duration: 200
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Pojechał do przodu."
+VacuumRemoteOff:
+  action:
+    - service: vacuum.xiaomi_remote_control_start
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Koniec zdalnego sterowania odkurzaczem."
+VacuumKitchen:
+  sequence:
+  - service: vacuum.xiaomi_remote_control_start
+  - delay: '00:00:08'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0"
+      rotation: "-18"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0"
+      rotation: "18"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0"
+      rotation: "18"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.xiaomi_remote_control_move
+    data:
+      velocity: "0.29"
+      rotation: "0"
+      duration: "5000"
+  - delay: '00:00:07'
+  - service: vacuum.clean_spot
+
+AirPurifierON:
+  action:
+    - service: fan.turn_on
+      data:
+        entity_id: fan.xiaomi_miio_device
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Oczyszczacz włączony"
+AirPurifierOFF:
+  action:
+    - service: fan.turn_off
+      data:
+        entity_id: fan.xiaomi_miio_device
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "OK. Oczyszczacz wyłączony"
+WhenEOD:
+  action:
+    service: ais_ai_service.say_it
+    data_template:
+      text: "Nie wiem."
+
+TV_TVN:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVN"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVN"
+TV_TVNStyle:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVN Style"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVN Style"
+TV_TVNTurbo:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVN Turbo"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVN Turbo"
+TV_TVN24:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVN 24"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVN 24"
+TV_TVN24BiS:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVN24 BiS"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVN24 BiS"
+TV_TVP1:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVP 1"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVP 1"
+TV_TVP2:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "TVP 2"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na TVP 2"
+TV_Polsat:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Polsat"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na Polsat"
+TV_Planete:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Planete+"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na Planete plus"
+TV_Kuchnia:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Kuchnia+"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na Kuchnia plus"
+TV_Domo:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Domo+"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na Domo plus"
+TV_MTVLive:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "MTV Live"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na MTV Live"
+TV_MTVRock:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "MTV Rock"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na MTV Rock"
+TV_CartoonNetwork:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Cartoon Network"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam kanał na Cartoon Network"
+TV_PierwyjKanal:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Pierwyj kanal"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Pierieklucziła na pierwyj kanal. Da, pa ruski toże umieju."
+TV_MusicBoxRussian:
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_channel
+        option: "Music Box Russian"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Pierieklucziła na Music Box Russian."
+
+TV_AnyChannel:
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.tv_all_channels
+        option: "{{channel}}"
+    - service: ais_ai_service.say_it
+      data_template:
+        text: "Przełączam program na {{channel}}"

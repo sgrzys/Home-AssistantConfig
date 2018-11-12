@@ -1,0 +1,517 @@
+- id: mqtt_publish_switch_rf1
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.clarus_1
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.clarus_1\" and states.input_boolean.clarus_1.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey1\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.clarus_1\" and states.input_boolean.clarus_1.state ==\
+        \ \"off\" -%}\n        cmnd/RFBridge/RfKey2\n{% endif %}\n"
+      payload: ''
+- id: mqtt_publish_switch_rf2
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.clarus_2
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.clarus_2\" and states.input_boolean.clarus_2.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey3\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.clarus_2\" and states.input_boolean.clarus_2.state ==\
+        \ \"off\" -%}\n        cmnd/RFBridge/RfKey4\n{% endif %}\n"
+      payload: ''
+- id: mqtt_publish_switch_rf3
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.clarus_3
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.clarus_3\" and states.input_boolean.clarus_3.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey5\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.clarus_3\" and states.input_boolean.clarus_3.state ==\
+        \ \"off\" -%}\n        cmnd/RFBridge/RfKey6\n{% endif %}\n"
+      payload: ''
+- id: mqtt_publish_switch_rf4
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.w_sypialni
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.w_sypialni\" and states.input_boolean.w_sypialni.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey7\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.w_sypialni\" and states.input_boolean.w_sypialni.state\
+        \ == \"off\" -%}\n        cmnd/RFBridge/RfKey8\n{% endif %}\n"
+      payload: ''
+- id: mqtt_publish_switch_rf5
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.w_pokoju_duze
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.w_pokoju_duze\" and states.input_boolean.w_pokoju_duze.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey9\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.w_pokoju_duze\" and states.input_boolean.w_pokoju_duze.state\
+        \ == \"off\" -%}\n        cmnd/RFBridge/RfKey10\n{% endif %}\n"
+      payload: ''
+###########
+- id: mqtt_change_switch_rf5_off
+  alias: Change switch state if RfKey 10 received
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "AFF394" }}'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.w_pokoju_duze
+- id: mqtt_change_switch_rf5_on
+  alias: Change switch state if RfKey 9 received
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "AFF391" }}'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.w_pokoju_duze
+########
+- id: mqtt_publish_switch_rf6
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.w_pokoju_pojedyncze
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.w_pokoju_pojedyncze\" and\
+        \ states.input_boolean.w_pokoju_pojedyncze.state == \"on\" -%}\n        cmnd/RFBridge/RfKey15\n\
+        {%- elif trigger.entity_id == \"input_boolean.w_pokoju_pojedyncze\" and states.input_boolean.w_pokoju_pojedyncze.state\
+        \ == \"off\" -%}\n        cmnd/RFBridge/RfKey15\n{% endif %}\n"
+      payload: ''
+- id: mqtt_publish_doorbell
+  alias: Publish doorbell change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.doorbell
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.doorbell\" and states.input_boolean.doorbell.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey16\n{% endif %}\n"
+      payload: ''
+- id: 11111353bd7440dca318a33474bc1113
+  alias: Front Doorbell Notification
+  trigger:
+  - platform: state
+    entity_id: input_boolean.doorbell
+  action:
+  - service: persistent_notification.create
+    data:
+      message: Ktoś dzwoni do drzwi! Przycisk wciśnięto w AIS-Dom {{now().strftime("%c")}}
+- id: 11111353bd7440dca318a33474bc1112
+  alias: Front Doorbell To Slack
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "117105" }}'
+  action:
+  - service: notify.mysweethome2
+    data_template:
+      title: Dzwonek
+      message: Ktoś dzwoni do drzwi! {{now().strftime("%c")}}
+- id: 11111353bd7440dca318a33474bc1111
+  alias: Front Doorbell To ais.SayIt
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "117105" }}'
+  action:
+  - data:
+      text: Ktoś dzwoni do drzwi!
+    service: ais_ai_service.say_it
+- alias: Włącz lampkę w kuchni gdy jest ciemno po zachodzie słońca
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001229914
+    to: 'on'
+  condition:
+  - condition: sun
+    after: sunset
+    after_offset: '1:00:00'
+  - condition: numeric_state
+    entity_id: sensor.illumination_7811dcb376e4
+    below: 100
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.gateway_light_7811dcb376e4
+- alias: Wyłącz lampkę w kuchni po minucie od ostatniego ruchu
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001229914
+    to: 'off'
+    for:
+      minutes: 1
+  condition:
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.gateway_light_7811dcb376e4
+- alias: Włącz ogrzewanie po wykryciu trybu Boost
+  trigger:
+    platform: state
+    entity_id: climate.w_duzej_azience_na_pietrze, climate.na_pietrze_pod_duzym_oknem, climate.u_chopakow_pod_oknem, climate.w_biurowym_pod_oknem, climate.w_jadalni_pod_oknem, climate.w_maej_azience_na_parterze, climate.w_przedpokoju_przy_wejsciu, climate.w_salonie_pod_oknem, climate.w_salonie_przy_wejsciu, climate.w_salonie_przy_wyjsciu_na_taras, climate.w_salonie_termostat_scienny, climate.w_sypialni_pod_oknem
+    to: boost
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.piec
+- alias: Włącz ogrzewanie w tygodniu o 6:30
+  trigger:
+    platform: time
+    at: '06:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.piec
+- alias: Włącz ogrzewanie w weekend o 8:30
+  trigger:
+    platform: time
+    at: '08:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - sat
+      - sun
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.piec
+- alias: Wyłącz ogrzewanie po 15min od włączenia pieca
+  trigger:
+    platform: state
+    entity_id: switch.piec
+    to: 'on'
+    for:
+      minutes: 15
+  condition:
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.piec
+- alias: Living Room Tamper
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "D31812" }}'
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.gniazdo
+- alias: Kod dzwonka na RFa - notification
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "117105" }}'
+  action:
+  - service: persistent_notification.create
+    data:
+      message: Dzwonek do drzwi wejściowych! {{now().strftime("%c")}}
+- id: '1531217844001'
+  alias: NCplus TV Channel- TVN (1)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVN
+  action:
+  - service: script.tv_channel_1
+- id: '1531217844003'
+  alias: NCplus TV Channel- TVN Style (3)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVN Style
+  action:
+  - service: script.tv_channel_3
+- id: '1531217844004'
+  alias: NCplus TV Channel- TVN Turbo (4)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVN Turbo
+  action:
+  - service: script.tv_channel_4
+- id: '1531217844006'
+  alias: NCplus TV Channel- TVN 24 (6)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVN 24
+  action:
+  - service: script.tv_channel_6
+- id: '1531217844022'
+  alias: NCplus TV Channel- TVN24 BiS (22)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVN24 BiS
+  action:
+  - service: script.tv_channel_2
+  - service: script.tv_channel_2
+- id: '1531217844011'
+  alias: NCplus TV Channel- TVP 1 (11)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVP 1
+  action:
+  - service: script.tv_channel_1
+  - service: script.tv_channel_1
+- id: '1531217844012'
+  alias: NCplus TV Channel- TVP 2 (12)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: TVP 2
+  action:
+  - service: script.tv_channel_1
+  - service: script.tv_channel_2
+- id: '1531217844007'
+  alias: NCplus TV Channel- Polsat (7)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Polsat
+  action:
+  - service: script.tv_channel_7
+- id: '1531217844027'
+  alias: NCplus TV Channel- Planete+ (27)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Planete+
+  action:
+  - service: script.tv_channel_2
+  - service: script.tv_channel_7
+- id: '1531217844025'
+  alias: NCplus TV Channel- Kuchnia+ (25)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Kuchnia+
+  action:
+  - service: script.tv_channel_2
+  - service: script.tv_channel_5
+- id: '1531217844024'
+  alias: NCplus TV Channel- Domo+ (24)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Domo+
+  action:
+  - service: script.tv_channel_2
+  - service: script.tv_channel_4
+- id: '1531217844151'
+  alias: NCplus TV Channel- MTV Live (151)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: MTV Live
+  action:
+  - service: script.tv_channel_1
+  - service: script.tv_channel_5
+  - service: script.tv_channel_1
+- id: '1531217844152'
+  alias: NCplus TV Channel- MTV Rock (152)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: MTV Rock
+  action:
+  - service: script.tv_channel_1
+  - service: script.tv_channel_5
+  - service: script.tv_channel_2
+- id: '1531217844101'
+  alias: NCplus TV Channel- Carton Network (101)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Carton Network
+  action:
+  - service: script.tv_channel_1
+  - service: script.tv_channel_0
+  - service: script.tv_channel_1
+- id: '1531217844312'
+  alias: NCplus TV Channel- Pierwyj kanal (312)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Pierwyj kanal
+  action:
+  - service: script.tv_channel_3
+  - service: script.tv_channel_1
+  - service: script.tv_channel_2
+- id: '1531217844323'
+  alias: NCplus TV Channel- Music Box Russian (323)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Music Box Russian
+  action:
+  - service: script.tv_channel_3
+  - service: script.tv_channel_2
+  - service: script.tv_channel_3
+- id: '1531217844078'
+  alias: NCplus TV Channel- Animal Planet (78)
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: input_select.tv_channel
+  condition:
+  - condition: state
+    entity_id: input_select.tv_channel
+    state: Animal Planet
+  action:
+  - service: script.tv_channel_7
+  - service: script.tv_channel_8
+
+- alias: Change Channel
+  trigger: 
+    - platform: state
+      entity_id: input_select.tv_all_channels
+  action:
+    - service: switch.broadlink_send_packet_10_10_1_210
+      data_template:
+        packet: >
+          {% set numbers = ['JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNRU2FTUVNhQQFTYVDxUQFRAVEBUPFRAVEBUQFBAVNhU1FTUWNRU1FTUVNhU1FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNhQ2FTUVNhUPFTYVEBQ2FRAVDxUQFRAVEBUPFRAVEBU1FTUVNhU1FTYVNRU1FQAFBQABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLZIWNRU1FTUVEBUQFRAVEBQ2FRAVNRU1FTYVNRUQFTUVEBUQFTUVEBUPFRAVEBUQFBAVNhUPFTYVNRU1FTYVNRU2FAAFBAABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxU2FTUVEBUPFRAVEBUQFQ8VEBUQFTUVNRU2FTUVNhQ2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNhU1FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxUQFRAVNRUQFRAUEBUQFRAVNRU1FRAVNRU2FTUVNRU2FQAFAwABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhU1FTUVNhUPFTYVDxU2FRAUNhUQFQ8VEBUQFRAVDxU2FQ8VNhU1FTUVNhU1FQAFBAABLEkUAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFTUVNhUPFRAVEBUQFQ8VNhUPFRAVNRU2FTUVNRU2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVDxUQFRAVEBQ2FRAUNhU1FTYVNRUQFTUVEBU1FTUVNhUQFBAVEBUQFQ8VEBUQFRAVNRU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVEBQQFRAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFRAVDxU2FRAUEBUQFRAVNRU2FDYVEBU1FTUVNhU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABK5MVNhU1FTUVEBUQFRAUEBU2FBAVNhU1FTUVNhUPFTYVEBQ2FRAUEBU2FQ8VEBUQFRAVDxU2FTUVEBU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA='] %}
+          {% set indexes = states.input_select.tv_all_channels.state.split(' ')[0] %}
+          {{ numbers[indexes[0] | int] }}
+    - condition: template
+      value_template: >
+        {% set indexes = states.input_select.tv_all_channels.state.split(' ')[0] %}
+        {{ indexes | count >= 2 }}
+    - delay:
+        seconds: 1
+    - service: switch.broadlink_send_packet_10_10_1_210
+      data_template:
+        packet: >
+          {% set numbers = ['JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNRU2FTUVNhQQFTYVDxUQFRAVEBUPFRAVEBUQFBAVNhU1FTUWNRU1FTUVNhU1FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNhQ2FTUVNhUPFTYVEBQ2FRAVDxUQFRAVEBUPFRAVEBU1FTUVNhU1FTYVNRU1FQAFBQABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLZIWNRU1FTUVEBUQFRAVEBQ2FRAVNRU1FTYVNRUQFTUVEBUQFTUVEBUPFRAVEBUQFBAVNhUPFTYVNRU1FTYVNRU2FAAFBAABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxU2FTUVEBUPFRAVEBUQFQ8VEBUQFTUVNRU2FTUVNhQ2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNhU1FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxUQFRAVNRUQFRAUEBUQFRAVNRU1FRAVNRU2FTUVNRU2FQAFAwABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhU1FTUVNhUPFTYVDxU2FRAUNhUQFQ8VEBUQFRAVDxU2FQ8VNhU1FTUVNhU1FQAFBAABLEkUAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFTUVNhUPFRAVEBUQFQ8VNhUPFRAVNRU2FTUVNRU2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVDxUQFRAVEBQ2FRAUNhU1FTYVNRUQFTUVEBU1FTUVNhUQFBAVEBUQFQ8VEBUQFRAVNRU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVEBQQFRAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFRAVDxU2FRAUEBUQFRAVNRU2FDYVEBU1FTUVNhU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABK5MVNhU1FTUVEBUQFRAUEBU2FBAVNhU1FTUVNhUPFTYVEBQ2FRAUEBU2FQ8VEBUQFRAVDxU2FTUVEBU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA='] %}
+          {% set indexes = states.input_select.tv_all_channels.state.split(' ')[0] %}
+          {{ numbers[indexes[1] | int] }} 
+    - condition: template
+      value_template: >
+        {% set indexes = states.input_select.tv_all_channels.state.split(' ')[0] %}
+        {{ indexes | count >= 3 }}
+    - delay:
+        seconds: 1
+    - service: switch.broadlink_send_packet_10_10_1_210
+      data_template:
+        packet: >
+          {% set numbers = ['JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNRU2FTUVNhQQFTYVDxUQFRAVEBUPFRAVEBUQFBAVNhU1FTUWNRU1FTUVNhU1FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNhQ2FTUVNhUPFTYVEBQ2FRAVDxUQFRAVEBUPFRAVEBU1FTUVNhU1FTYVNRU1FQAFBQABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLZIWNRU1FTUVEBUQFRAVEBQ2FRAVNRU1FTYVNRUQFTUVEBUQFTUVEBUPFRAVEBUQFBAVNhUPFTYVNRU1FTYVNRU2FAAFBAABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxU2FTUVEBUPFRAVEBUQFQ8VEBUQFTUVNRU2FTUVNhQ2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNhU1FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxUQFRAVNRUQFRAUEBUQFRAVNRU1FRAVNRU2FTUVNRU2FQAFAwABLEgVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhU1FTUVNhUPFTYVDxU2FRAUNhUQFQ8VEBUQFRAVDxU2FQ8VNhU1FTUVNhU1FQAFBAABLEkUAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFTUVNhUPFRAVEBUQFQ8VNhUPFRAVNRU2FTUVNRU2FQAFAwABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVDxUQFRAVEBQ2FRAUNhU1FTYVNRUQFTUVEBU1FTUVNhUQFBAVEBUQFQ8VEBUQFRAVNRU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABLJMVNRU1FTYVEBQQFRAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFRAVDxU2FRAUEBUQFRAVNRU2FDYVEBU1FTUVNhU1FQAFBAABLEkVAA0FAAAAAAAAAAA=', 'JgBQAAABK5MVNhU1FTUVEBUQFRAUEBU2FBAVNhU1FTUVNhUPFTYVEBQ2FRAUEBU2FQ8VEBUQFRAVDxU2FTUVEBU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA='] %}
+          {% set indexes = states.input_select.tv_all_channels.state.split(' ')[0] %}
+          {{ numbers[indexes[2] | int] }} 

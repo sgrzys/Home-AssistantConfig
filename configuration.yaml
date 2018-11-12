@@ -1,0 +1,154 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 52.2394
+  longitude: 21.0362
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 78
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Warsaw
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+intent_script: !include intents.yaml
+conversation: !include conversation.yaml
+#ais_ai_service: !include conversation.yaml
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+  - platform: template
+    sensors:
+      airpurifier_aqi:
+        value_template: '{{ states.fan.xiaomi_miio_device.attributes.aqi }}'
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+###################################################################
+switch: !include switch.yaml
+input_select: !include input.yaml
+
+input_text:
+  buttons_nc_remote:
+    name: Buttons NC+ Remote
+  buttons_onkyo_remote:
+    name: Buttons Onkyo Remote
+
+maxcube:
+  gateways:
+    - host: 10.10.1.170
+
+xiaomi_aqara:
+  gateways:
+    - mac: 7811DCB376E4
+      key: !secret xiaomi_aquara_seb_key
+    - mac: 7811DCAF2D84
+      key: !secret xiaomi_aquara_tato_key
+      disable: true
+
+vacuum:
+  - platform: xiaomi_miio
+    host: 10.10.1.201
+    token: !secret vacuum_token
+
+fan:
+  - platform: xiaomi_miio
+    host: 10.10.1.203
+    token: !secret fan_token
+  - platform: xiaomi_miio
+    host: 10.10.1.206
+    token: !secret fan_token
+
+media_player:
+  - platform: xiaomi_tv
+
+notify:
+  - name: MYSWEETHOME2
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#dom'
+
+input_boolean:
+  clarus_1:
+    name: Clarus 1
+    initial: off
+    icon: mdi:remote
+  clarus_2:
+    name: Witryna w jadalni
+    initial: off
+    icon: mdi:remote
+  clarus_3:
+    name: Clarus 3
+    initial: off
+    icon: mdi:remote
+  w_sypialni:
+    name: Światło w sypialni
+    initial: off
+    icon: mdi:remote
+  doorbell:
+    name: Dzwonek do drzwi
+    initial: off
+    icon: mdi:doorbell-video
+  w_pokoju_duze:
+    name: Światło w pokoju - duże
+    initial: off
+    icon: mdi:remote
+  w_pokoju_pojedyncze:
+    name: Światło w pokoju - pojedyńcze
+    initial: off
+    icon: mdi:remote
+
+media_player:
+  - platform: xiaomi_tv

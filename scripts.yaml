@@ -1,0 +1,183 @@
+tv_channel_0:
+    alias: NCplus TV Channel 0
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNRU2FTUVNhQQFTYVDxUQFRAVEBUPFRAVEBUQFBAVNhU1FTUWNRU1FTUVNhU1FQAFAwABLEkVAA0FAAAAAAAAAAA="
+
+tv_channel_1:
+    alias: NCplus TV Channel 1
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNhQ2FTUVNhUPFTYVEBQ2FRAVDxUQFRAVEBUPFRAVEBU1FTUVNhU1FTYVNRU1FQAFBQABLEgVAA0FAAAAAAAAAAA="
+
+tv_channel_2:
+    alias: NCplus TV Channel 2
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLZIWNRU1FTUVEBUQFRAVEBQ2FRAVNRU1FTYVNRUQFTUVEBUQFTUVEBUPFRAVEBUQFBAVNhUPFTYVNRU1FTYVNRU2FAAFBAABLEgVAA0FAAAAAAAAAAA="
+
+tv_channel_3:
+    alias: NCplus TV Channel 3
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxU2FTUVEBUPFRAVEBUQFQ8VEBUQFTUVNRU2FTUVNhQ2FQAFAwABLEkVAA0FAAAAAAAAAAA="
+
+tv_channel_4:
+    alias: NCplus TV Channel 4
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNhU1FTUVEBUQFQ8VEBU1FRAVNhQ2FTUVNhQQFTYVDxUQFRAVNRUQFRAUEBUQFRAVNRU1FRAVNRU2FTUVNRU2FQAFAwABLEgVAA0FAAAAAAAAAAA="
+
+tv_channel_5:
+    alias: NCplus TV Channel 5
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU2FTUVEBUQFQ8VEBU1FRAVNhU1FTUVNhUPFTYVDxU2FRAUNhUQFQ8VEBUQFRAVDxU2FQ8VNhU1FTUVNhU1FQAFBAABLEkUAA0FAAAAAAAAAAA="
+
+tv_channel_6:
+    alias: NCplus TV Channel 6
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU2FTUVEBUQFBAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFTUVNhUPFRAVEBUQFQ8VNhUPFRAVNRU2FTUVNRU2FQAFAwABLEkVAA0FAAAAAAAAAAA="
+
+tv_channel_7:
+    alias: NCplus TV Channel 7
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU1FTYVDxUQFRAVEBQ2FRAUNhU1FTYVNRUQFTUVEBU1FTUVNhUQFBAVEBUQFQ8VEBUQFRAVNRU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA="
+
+tv_channel_8:
+    alias: NCplus TV Channel 8
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABLJMVNRU1FTYVEBQQFRAVEBU1FRAVNRU2FTUVNRUQFTUVEBUQFRAVDxU2FRAUEBUQFRAVNRU2FDYVEBU1FTUVNhU1FQAFBAABLEkVAA0FAAAAAAAAAAA="
+
+tv_channel_9:
+    alias: NCplus TV Channel 9
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBQAAABK5MVNhU1FTUVEBUQFRAUEBU2FBAVNhU1FTUVNhUPFTYVEBQ2FRAUEBU2FQ8VEBUQFRAVDxU2FTUVEBU1FTYVNRU1FQAFBAABLEkVAA0FAAAAAAAAAAA="
+
+tv_exit:
+    alias: NCplus TV Exit
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBUAAABK5MVNhU1FTUVEBUQFRAVDxU2FRAUNhU1FTYVNRUQFTUVEBUQFTUVEBU1FRAVEBUPFRAVNhQQFTYVDxU2FTUVNRU2FQAFAgABLkkUAAcICQANBQAAAAA="
+
+tv_vol_up: 
+    alias: NCplus TV Volume Up
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKpUUNhM4EzcTEhMSExISEhM4EhMSOBM3EzgTNxMSEzcTEhMSEzcTEhMSEzcTOBISExITOBISEzgTNxQRExITNxM4EgAFCAABKksSAAx4AAEqSxIADQU="
+tv_vol_down: 
+    alias: NCplus TV Volume Down
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABK5QUNxM3EzgTERMSExITEhI4FBETNxM4EjgUNhMSEzcTEhM4EjgTEhISEzgTNxMSExISEhMSEzgSOBMSEhITOBM3EwAFBwABKUsTAAx2AAEqSxMADQU="
+tv_prog_up: 
+    alias: NCplus TV Program Up
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKpUTNxM4EjgTEhITEhITEhM3ExITOBI4EzcTOBISEzgTEhISExITEhMSEjgTNxMSExISOBM4EjgTNxQRExISOBM4EgAFBwABKksTAAx2AAEqSxMADQU="
+tv_prog_down: 
+    alias: NCplus TV Program Down
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKpYSOBM3EzgTEhISExITEhM3FBETNxM4EjgTOBISEzgSEhM4ExISEhMSEzcTOBMSEhITEhM4EjgTNxMSExITNxM4EwAFBgABKksTAAx4AAEqSxIADQU="
+
+
+onkyo_v1: 
+    alias: Pilot Onkyo V1
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgB4AAABKZAWDxY0Fg8VDxY0Fg8WMxY0FjQWDhY0FjQVDxY0FjQVDxY0FjQVNBY0Fg8VDxYPFg8WDxUPFg8WDxYzFjQWNBYzFgAE9AABKUgWAAxHAAEpSBYADEcAASpHFgAMSAABKUcWAAxIAAEpRxYADEgAASlIFQANBQ=="
+onkyo_v2: 
+    alias: Pilot Onkyo V2
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBsAAABKZEXDhYzFg8WDxYzFg8WNBYzFjQWDxYzFjQWDxYzFjQWDxYPFTQWNBYzFg8WDxYPFg4WNBYPFg8VDxY0FjQVNBY0FgAE8wABKkcWAAdvCQAE0AABKUcXAAxHAAEpRxYADEgAASlIFgANBQAAAAAAAAAAAAAAAA=="
+onkyo_v3: 
+    alias: Pilot Onkyo V3
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBgAAABKpAWDxYzFg8WDxY0Fg4WNBY0FTQWDxY0FTQWDxY0FTQWDxYzFg8WNBYzFg8WDxYPFg8VDxY0Fg8UERU0FTUUNRU1FQAE9QABJkoUAAxKAAEpSBYADEcAASlIFgANBQAAAAAAAAAA"
+onkyo_tuner: 
+    alias: Pilot Onkyo Tuner
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBgAAABKZAXDhY0Fg8WDhY0Fg8WMxY0FjQWDhY0FjQVDxY0FjQVDxY0FjQWDhY0Fg8WDxUPFg8WDxYPFTQWDxYzFjQWNBYzFgAE9AABKUgWAAxHAAEpSBYADEcAASpHFgANBQAAAAAAAAAA"
+
+onkyo_vol_up: 
+    alias: Pilot Onkyo Vol+
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgCQAAABKpAXDhYzFg8WDxY0FQ8WNBY0FTQWDxY0FTQWDxY0FTQWDxYPFjMWDxYPFg8VDxYPFg8WMxYPFjQWNBU0FjQWMxY0FgAE9AABKZAWDxY0Fg8VDxY0Fg8VNBY0FjMWDxY0FjQVDxY0FjMWDxYPFjQWDxUPFg8WDxYPFQ8WNBYPFTQWNBYzFjQWNBYzFgANBQAAAAAAAAAA"
+onkyo_vol_down: 
+    alias: Pilot Onkyo Vol-
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgAiAQABKY8YDxU0Fg8WDxYzFg8WNBYzFjQWDxYzFjQWDxYzFjQWDxYzFjQWDxYOFg8WDxYPFg8VDxYPFjQWMxY0FjMWNBY0FgAD9wj0AAEqkBYPFjQVDxYPFjIYDxU0FjQWMxYPFjQWMxYPFjQVNBYPFjQVNBYPFg8WDxUPFg8WDxYPFRAVNBY0FTQWNBY0FTQWAAT0AAEpkBYPFjQWDxUPFjQWDxU0FjQWMxYPFjQWMxYPFjQWMxYPFjQWMxYPFg8WDxYPFQ8WDxYPFg8VNBY0FjMWNBY0FTQWAAT0AAEpkBYPFjQWDxYPFTQWDxYzFjQWNBYPFTQWNBUQFTQWNBUQFTQWNBUQFQ8WDxYPFg8VDxYPFg8WMxY0FjQVNBY0FjMWAA0FAAAAAAAA"
+
+onkyo_mode_left: 
+    alias: Pilot Onkyo Listening Mode <-
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKZEWDxU0Fg8WDxYzFg8WNBYzFg8WDxY0FTQWDxYyFzQWDxYzFg8WNBYPFRAVDxY0Fg8VDxY0Fg8WMxY0FjQVDxY0FgAFGQABKUcWAAxIAAEpRxYADQU="
+onkyo_mode_right: 
+    alias: Pilot Onkyo Listening Mode ->
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKZEWDxU0Fg8WDxYzFg8WNBYzFjIYDxYzFjQWDxYzFjQWDxYOFg8WNBYzFg8WDxY0FQ8WNBYzFg8WDxY0FjMWDxY0FgAE8wABKkQZAAxHAAEqRxYADQU="
+onkyo_mute: 
+    alias: Pilot Onkyo Mute
+    sequence:
+      - service: switch.broadlink_send_packet_10_10_1_210
+        data:
+          packet: 
+            - "JgBYAAABKo8XDhczFw4WDxYzFw4WMxczFzMWDxYzFzMWDxYzFzMWDxYzFw4WMxcOFw4XDhYPFg4XDhczFg8WMxczFjMXMxYzFwAE8wABKUgWAAxHAAEpSBYADQU="

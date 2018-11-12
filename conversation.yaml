@@ -1,0 +1,86 @@
+﻿intents:
+  VacuumON:
+    - włącz odkurzacz
+    - odkurzaj
+    - rozpocznij odkurzanie
+    - rozpocznij sprzątanie
+    - poodkurzaj
+  VacuumOFF:
+    - zatrzymaj odkurzacz
+  VacuumRTB:
+    - wyłącz odkurzacz
+    - zakończ odkurzanie
+    - wróć do stacji dokującej
+  VacuumRTB:
+    - zakończ odkurzanie
+    - skończ odkurzanie
+    - wyślij odkurzacz do bazy
+  VacuumLocate:
+    - gdzie jest odkurzacz
+    - odkurzaczu odezwij się
+  VacuumRemoteOn:
+    - włącz zdalne sterowanie odkurzaczem
+  VacuumRemoteForward:
+    - jedź do przodu
+  VacuumRemoteOff:
+    - wyłącz zdalne sterowanie
+  VacuumKitchen:
+    - odkurzaj w kuchni
+  AirPurifierON:
+    - włącz oczyszczacz powietrza
+    - włącz oczyszczacz
+    - oczyść powietrze
+  AirPurifierOFF:
+    - wyłącz oczyszczacz powietrza
+    - wyłącz oczyszczacz
+  WhenEOD:
+    - ile do końca
+    - kiedy koniec
+  TV_TVN:
+    - przełącz na TVN
+  TV_TVNStyle:
+    - przełącz na TVN Style
+  TV_TVNTurbo:
+    - przełącz na TVN Turbo
+  TV_TVN24:
+    - przełącz na TVN 24
+  TV_TVN24BiS:
+    - przełącz na TVN 24 Biznes
+    - przełącz na TVN Biznes
+    - przełącz na TVN 24 Biznes i Świat
+  TV_TVP1:
+    - przełącz na jedynkę
+    - przełącz na TVP 1
+  TV_TVP2:
+    - przełącz na dwójkę
+    - przełącz na TVP 2
+  TV_Polsat:
+    - przełącz na Polsat
+  TV_Planete:
+    - przełącz na Planete plus
+    - przełącz na Planete
+  TV_Kuchnia:
+    - przełącz na Kuchnia plus
+    - przełącz na Kuchnia
+  TV_Domo:
+    - przełącz na Domo plus
+    - przełącz na Domo 
+  TV_MTVLive:
+    - przełącz na MTV Live
+    - przełącz na MTV
+  TV_MTVRock:
+    - przełącz na MTV Rock
+  TV_CartoonNetwork:
+    - przełącz na Cartoon Network
+    - przełącz na Cartoon
+  TV_PierwyjKanal:
+    - przełącz na Pierwyj Kanal
+    - przełącz na Pierwyj Kanał
+    - przełącz na rosyjską jedynkę
+  TV_MusicBoxRussian:
+    - przełącz na Music Box Russian
+    - przełącz na Music Box
+    - przełącz na rosyjską muzykę
+
+  TV_AnyChannel:
+    - przełącz [program][kanał] na [kanał] {channel}

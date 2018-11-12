@@ -1,0 +1,81 @@
+sensor_xiaomi_gateway:
+  name: Xiaomi Gateway
+  entities:
+    - binary_sensor.cube_158d00010b2761
+    - binary_sensor.door_window_sensor_158d0001e0350a
+    - binary_sensor.door_window_sensor_158d0001e0366a
+    - binary_sensor.motion_sensor_158d0001229914
+    - binary_sensor.smoke_sensor_158d0001b792a9
+    - binary_sensor.water_leak_sensor_158d000239ea2b
+    - binary_sensor.switch_158d0001a3061d
+    - sensor.pressure_158d0002323299
+    - sensor.humidity_158d0002323299
+    - sensor.temperature_158d0002323299
+    - sensor.humidity_158d0001f4e8dc
+    - sensor.temperature_158d0001f4e8dc
+    - sensor.humidity_158d0001f4e9be
+    - sensor.temperature_158d0001f4e9be
+    - sensor.humidity_158d0001f51692
+    - sensor.temperature_158d0001f51692
+
+climat_max_cube:
+  name: MAX! Cube
+  entities:
+    - switch.piec
+    - climate.u_chopakow_pod_oknem
+    - climate.w_sypialni_pod_oknem
+    - climate.w_salonie_termostat_scienny
+    - climate.w_biurowym_pod_oknem
+    - climate.w_jadalni_pod_oknem
+    - climate.w_maej_azience_na_parterze
+    - climate.w_duzej_azience_na_pietrze
+    - climate.na_pietrze_pod_duzym_oknem
+    - climate.w_przedpokoju_przy_wejsciu
+
+sensor:
+    name: SweetHome
+    view: yes
+    entities:
+      - group.sensor_xiaomi_gateway
+      - group.climat_max_cube
+      - vacuum.xiaomi_vacuum_cleaner
+      #- fan.xiaomi_air_purifier
+      - fan.xiaomi_miio_device
+      - input_boolean.clarus_1
+      - input_boolean.clarus_2
+      - input_boolean.clarus_3
+      - input_boolean.w_sypialni
+      - input_boolean.doorbell
+      - input_boolean.w_pokoju_duze
+      - input_boolean.w_pokoju_pojedyncze
+
+nc_plus:
+    control: hidden
+    name: Telewizja NC+
+    entities:
+      - input_select.tv_channel
+      - input_select.tv_type
+      - input_select.tv_all_channels
+
+pilot_onkyo:
+  name: Pilot Onkyo
+  control: hidden
+  entities:
+    - switch.amp_onkyo
+    - input_text.buttons_onkyo_remote
+pilot_nc:
+  name: Pilot NC+
+  control: hidden
+  entities:
+    - switch.tv_nc
+    - input_text.buttons_nc_remote
+
+TV_Remote:
+    name: TV Pilot
+    view: yes
+    icon: mdi:television-classic
+    entities:
+      - group.nc_plus
+      - group.pilot_nc
+      - group.pilot_onkyo
+

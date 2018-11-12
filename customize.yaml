@@ -1,0 +1,231 @@
+group.all_scripts:
+  hidden: true
+binary_sensor.door_window_sensor_158d0001e0350a:
+  friendly_name: Drzwi balkonowe
+binary_sensor.door_window_sensor_158d0001e0366a:
+  friendly_name: Drzwi wejściowe
+sensor.temperature_158d0001f4e8dc:
+  friendly_name: Temperatura u chłopaków
+sensor.temperature_158d0001f4e9be:
+  friendly_name: Temperatura w sypialni
+sensor.temperature_158d0001f51692:
+  friendly_name: Temperatura w salonie
+sensor.humidity_158d0001f4e8dc:
+  friendly_name: Wilgotność u chłopaków
+sensor.humidity_158d0001f4e9be:
+  friendly_name: Wilgotność w sypialni
+sensor.humidity_158d0001f51692:
+  friendly_name: Wilgotność w salonie
+sensor.illumination_7811dcb376e4:
+  friendly_name: Sensor światła w XiaomiGateway
+light.yeelight_strip_7811dc6701a7:
+  friendly_name: Ledy pod telewizorem
+switch.sonoff:
+  friendly_name: Oświetlenie akwarium
+  icon: mdi:fish
+light.gateway_light_7811dcb376e4:
+  friendly_name: Lampka w kuchni
+media_player.kd55x8509c:
+  friendly_name: TV u rodziców KD-55X8509C
+vacuum.xiaomi_vacuum_cleaner:
+  friendly_name: Odkurzacz
+switch.oprawka_3:
+  friendly_name: Światło w pokoju biurowym
+switch.piec:
+  friendly_name: Ogrzewanie
+  icon: mdi:fire
+fan.xiaomi_miio_device:
+  friendly_name: Oczyszczacz powietrza
+binary_sensor.motion_sensor_158d0001229914:
+  friendly_name: Czujnik ruchu
+input_boolean.clarus_2:
+  assumed_state: 'true'
+  friendly_name: Witryna w jadalni
+switch.gniazdo_s20:
+  friendly_name: Ładowarka Segway'a
+switch.amp_onkyo:
+  icon: mdi:power
+  assumed_state: true
+switch.plug_158d000171a510:
+  friendly_name: Zasilacz do laptopa
+binary_sensor.smoke_sensor_158d0001b792a9:
+  friendly_name: Czujnik dymu
+binary_sensor.water_leak_sensor_158d000239ea2b:
+  friendly_name: Czujnik zalania w łazience
+binary_sensor.switch_158d0001a3061d:
+  friendly_name: Przycisk nad routerem
+light.klorowa_lampka:
+  friendly_name: Kolorowa lampka
+sensor.temperature_158d0002323299:
+  friendly_name: Temperatura na zewnątrz
+sensor.pressure_158d0002323299:
+  friendly_name: Ciśnienie na zewnątrz
+sensor.humidity_158d0002323299:
+  friendly_name: Wilgotność na zewnątrz
+input_boolean.w_sypialni:
+  assumed_state: 'true'
+
+########################
+input_text.buttons_nc_remote:
+  custom_ui_state_card: state-card-tiles
+  config:
+    columns: 3
+    column_width: 110px
+    row_height: 22px
+    entities:
+    - entity: script.tv_vol_down
+      row: 1
+      column: 1
+      icon: mdi:volume-off
+      color: tomato
+    - entity: script.tv_prog_up
+      label: Program
+      icon: mdi:arrow-up
+      row: 1
+      column: 2
+      row_span: 2
+      color: silver
+    - entity: script.tv_vol_down
+      label: Vol-
+      icon: mdi:arrow-left
+      row: 3
+      column: 1
+      row_span: 2
+      color: silver
+    - entity: script.ais_button_click
+      data:
+        code: '{"KeyCode":23, "Action": 0}'
+      label: OK
+      row: 3
+      column: 2
+      row_span: 2
+      color: grey
+    - entity: script.tv_vol_up
+      label: Vol+
+      icon: mdi:arrow-right
+      row: 3
+      column: 3
+      row_span: 2
+      color: silver
+    - entity: script.tv_prog_down
+      label: Program
+      icon: mdi:arrow-down
+      row: 5
+      column: 2
+      row_span: 2
+      color: silver
+    - entity: script.ais_button_click
+      label: Home
+      row: 7
+      column: 1
+      row_span: 2
+      icon: mdi:home
+    - entity: script.tv_exit
+      label: Back
+      row: 7
+      column: 3
+      row_span: 2
+      icon: mdi:backup-restore
+    - entity: script.ais_button_click
+      data:
+        code: '{"KeyCode":71, "Action": 1}'
+      label: Mic
+      row: 7
+      column: 2
+      row_span: 2
+      color: dodgerblue
+      color_on: red
+      color_off: green
+      icon: mdi:microphone-settings
+input_text.buttons_onkyo_remote:
+  custom_ui_state_card: state-card-tiles
+  config:
+    columns: 3
+    column_width: 110px
+    row_height: 22px
+    entities:
+    - entity: script.onkyo_mute
+      label: Mute
+      row: 1
+      column: 1
+      icon: mdi:volume-off
+      color: tomato
+    - entity: script.onkyo_vol_up
+      label: Vol+
+      icon: mdi:arrow-up
+      row: 1
+      column: 3
+      row_span: 3
+      color: silver
+    - entity: script.onkyo_vol_down
+      label: Vol-
+      icon: mdi:arrow-down
+      row: 4
+      column: 3
+      row_span: 3
+      color: silver
+    - entity: script.onkyo_mode_left
+      label: Left
+      icon: mdi:arrow-left
+      row: 3
+      column: 1
+      row_span: 2
+      color: silver
+#    - entity: script.ais_button_click
+#      label: Surround
+#      row: 3
+#      column: 2
+#      row_span: 2
+#      color: grey
+    - entity: script.onkyo_mode_right
+      label: Right
+      icon: mdi:arrow-right
+      row: 3
+      column: 2
+      row_span: 2
+      color: silver
+    - entity: script.ais_button_click
+      label: Home
+      row: 7
+      column: 1
+      row_span: 2
+      icon: mdi:home
+    - entity: script.tv_exit
+      label: Back
+      row: 7
+      column: 3
+      row_span: 2
+      icon: mdi:backup-restore
+    - entity: script.ais_button_click
+      label: Mic
+      row: 7
+      column: 2
+      color: dodgerblue
+      color_on: red
+      color_off: green
+      icon: mdi:microphone-settings
+    - entity: script.onkyo_v1
+      label: V1
+      row: 9
+      column: 1
+      row_span: 2
+      color: silver
+    - entity: script.onkyo_v2
+      label: V2
+      row: 9
+      column: 2
+      row_span: 2
+      color: silver
+    - entity: script.onkyo_v3
+      label: V3
+      row: 9
+      column: 3
+      row_span: 2
+      color: silver
+    - entity: script.onkyo_tuner
+      label: Tuner
+      row: 11
+      column: 2
+      row_span: 2
+      color: grey
+########################
