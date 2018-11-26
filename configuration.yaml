@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 52.2394
-  longitude: 21.0362
+  latitude: 51.26447296142578
+  longitude: 16.70532989501953
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 78
   # metric for Metric, imperial for Imperial
@@ -12,6 +12,10 @@ homeassistant:
   time_zone: Europe/Warsaw
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+#  - type: trusted_networks
+  - type: homeassistant
+#  - type: legacy_api_password
 
 # Show links to resources in log and frontend
 introduction:
@@ -152,3 +156,25 @@ input_boolean:
 
 media_player:
   - platform: xiaomi_tv
+
+volvooncall:
+  username: sgrzys@gmail.com
+  password: !secret volvooncall_password
+
+zone:
+  - name: Szkoła
+    latitude: 51.326422
+    longitude: 16.6342892
+    radius: 250
+    icon: mdi:school
+
+  - name: Work
+    latitude: 51.164772033691406
+    longitude: 16.593849182128906
+
+  # This will override the default home zone
+  - name: Home
+    latitude: 51.2646332
+    longitude: 16.7046017
+    radius: 100
+    icon: mdi:account-multiple  

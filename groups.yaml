@@ -32,12 +32,31 @@ climat_max_cube:
     - climate.na_pietrze_pod_duzym_oknem
     - climate.w_przedpokoju_przy_wejsciu
 
+volvooncall:
+  name: Volvo DW1AV32
+  entities:
+    - device_tracker.volvo_dw1av32
+    - lock.dw1av32_lock
+    - binary_sensor.dw1av32_doors
+    - binary_sensor.dw1av32_windows
+    - binary_sensor.dw1av32_brake_fluid
+    - binary_sensor.dw1av32_washer_fluid
+    - binary_sensor.dw1av32_bulbs
+    - binary_sensor.dw1av32_service
+    - sensor.dw1av32_fuel_amount
+    - sensor.dw1av32_fuel_consumption
+    - sensor.dw1av32_fuel_level
+    - sensor.dw1av32_range
+    - sensor.dw1av32_odometer
+
+
 sensor:
     name: SweetHome
     view: yes
     entities:
       - group.sensor_xiaomi_gateway
       - group.climat_max_cube
+      - group.volvooncall
       - vacuum.xiaomi_vacuum_cleaner
       #- fan.xiaomi_air_purifier
       - fan.xiaomi_miio_device

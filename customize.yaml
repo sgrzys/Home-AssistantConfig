@@ -64,8 +64,6 @@ sensor.humidity_158d0002323299:
   friendly_name: Wilgotność na zewnątrz
 input_boolean.w_sypialni:
   assumed_state: 'true'
-
-########################
 input_text.buttons_nc_remote:
   custom_ui_state_card: state-card-tiles
   config:
@@ -171,12 +169,6 @@ input_text.buttons_onkyo_remote:
       column: 1
       row_span: 2
       color: silver
-#    - entity: script.ais_button_click
-#      label: Surround
-#      row: 3
-#      column: 2
-#      row_span: 2
-#      color: grey
     - entity: script.onkyo_mode_right
       label: Right
       icon: mdi:arrow-right
@@ -228,4 +220,29 @@ input_text.buttons_onkyo_remote:
       column: 2
       row_span: 2
       color: grey
-########################
+device_tracker.volvo_dw1av32:
+  friendly_name: VOLVO DW1AV32
+lock.dw1av32_lock:
+  friendly_name: Volvo Blokada
+binary_sensor.dw1av32_brake_fluid:
+  friendly_name: Volvo Płyn hamulcowy
+binary_sensor.dw1av32_bulbs:
+  friendly_name: Volvo Żarówki
+sensor.dw1av32_fuel_amount:
+  friendly_name: Volvo Paliwo
+sensor.dw1av32_range:
+  friendly_name: Volvo Zasięg
+binary_sensor.dw1av32_washer_fluid:
+  friendly_name: Volvo Płyn do spryskiwaczy
+binary_sensor.dw1av32_doors:
+  friendly_name: Volvo Drzwi
+binary_sensor.dw1av32_windows:
+  friendly_name: Volvo Okna
+sensor.dw1av32_fuel_consumption:
+  friendly_name: Volvo Spalanie
+binary_sensor.dw1av32_service:
+  friendly_name: Volvo Serwis
+sensor.dw1av32_fuel_level:
+  friendly_name: Volvo Zbiornik paliwa
+sensor.dw1av32_odometer:
+  friendly_name: Volvo Stan licznika
