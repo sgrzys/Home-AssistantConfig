@@ -41,13 +41,13 @@ binary_sensor.motion_sensor_158d0001229914:
 input_boolean.clarus_2:
   assumed_state: 'true'
   friendly_name: Witryna w jadalni
-switch.gniazdo_s20:
-  friendly_name: Ładowarka Segway'a
+#switch.gniazdo_s20:
+#  friendly_name: Ładowarka Segway'a
 switch.amp_onkyo:
   icon: mdi:power
   assumed_state: true
-switch.plug_158d000171a510:
-  friendly_name: Zasilacz do laptopa
+#switch.plug_158d000171a510:
+#  friendly_name: Zasilacz do laptopa
 binary_sensor.smoke_sensor_158d0001b792a9:
   friendly_name: Czujnik dymu
 binary_sensor.water_leak_sensor_158d000239ea2b:

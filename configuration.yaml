@@ -68,6 +68,17 @@ sensor:
     sensors:
       airpurifier_aqi:
         value_template: '{{ states.fan.xiaomi_miio_device.attributes.aqi }}'
+### S20 z DHT11 w bibliotece
+  - platform: mqtt
+    name: "Temperatura w bibliotece"
+    state_topic: "tele/dom_s20_7A1D0E/SENSOR"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    name: "Wilgotność w bibliotece"
+    state_topic: "tele/dom_s20_7A1D0E/SENSOR"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json['DHT11'].Humidity }}"
 
 # Text to speech
 tts:
