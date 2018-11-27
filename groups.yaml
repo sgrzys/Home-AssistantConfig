@@ -32,6 +32,13 @@ climat_max_cube:
     - climate.na_pietrze_pod_duzym_oknem
     - climate.w_przedpokoju_przy_wejsciu
 
+climat_biblioteka:
+  name: Biblioteka
+  entities:
+    - switch.gniazdo_s20
+    - sensor.temperatura_w_bibliotece
+    - sensor.wilgotnosc_w_bibliotece
+
 volvooncall:
   name: Volvo DW1AV32
   entities:
@@ -56,6 +63,7 @@ sensor:
     entities:
       - group.sensor_xiaomi_gateway
       - group.climat_max_cube
+      - group.climat_biblioteka
       - group.volvooncall
       - vacuum.xiaomi_vacuum_cleaner
       #- fan.xiaomi_air_purifier
@@ -97,4 +105,3 @@ TV_Remote:
       - group.nc_plus
       - group.pilot_nc
       - group.pilot_onkyo
-
