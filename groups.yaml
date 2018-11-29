@@ -13,6 +13,7 @@ sensor_xiaomi_gateway:
     - sensor.temperature_158d0002323299
     - sensor.humidity_158d0001f4e8dc
     - sensor.temperature_158d0001f4e8dc
+    - sensor.airpurifier_aqi
     - sensor.humidity_158d0001f4e9be
     - sensor.temperature_158d0001f4e9be
     - sensor.humidity_158d0001f51692

@@ -10,10 +10,8 @@
   VacuumRTB:
     - wyłącz odkurzacz
     - zakończ odkurzanie
-    - wróć do stacji dokującej
-  VacuumRTB:
-    - zakończ odkurzanie
     - skończ odkurzanie
+    - wróć do stacji dokującej
     - wyślij odkurzacz do bazy
   VacuumLocate:
     - gdzie jest odkurzacz

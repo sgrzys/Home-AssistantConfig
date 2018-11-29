@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  # name: Home
   # Location required to calculate the time the sun rises and sets
   latitude: 51.26447296142578
   longitude: 16.70532989501953
@@ -126,8 +126,8 @@ fan:
     host: 10.10.1.206
     token: !secret fan_token
 
-media_player:
-  - platform: xiaomi_tv
+#media_player:
+#  - platform: xiaomi_tv
 
 notify:
   - name: MYSWEETHOME2
@@ -165,9 +165,6 @@ input_boolean:
     initial: off
     icon: mdi:remote
 
-media_player:
-  - platform: xiaomi_tv
-
 volvooncall:
   username: sgrzys@gmail.com
   password: !secret volvooncall_password
@@ -179,9 +176,12 @@ zone:
     radius: 250
     icon: mdi:school
 
-  - name: Work
+  - name: w pracy
     latitude: 51.164772033691406
     longitude: 16.593849182128906
+  - name: w AQUAbar
+    latitude: 51.169365
+    longitude: 16.6015285
 
   # This will override the default home zone
   - name: Home
