@@ -118,6 +118,55 @@
         {%- elif trigger.entity_id == \"input_boolean.w_pokoju_pojedyncze\" and states.input_boolean.w_pokoju_pojedyncze.state\
         \ == \"off\" -%}\n        cmnd/RFBridge/RfKey15\n{% endif %}\n"
       payload: ''
+
+### gniazdo_w_ogrodzie_2 
+- id: mqtt_publish_switch_rf13_14
+  alias: Publish switch change via MQTT to RF
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.gniazdo_w_ogrodzie_2
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "{%- if trigger.entity_id == \"input_boolean.gniazdo_w_ogrodzie_2\" and states.input_boolean.gniazdo_w_ogrodzie_2.state\
+        \ == \"on\" -%}\n        cmnd/RFBridge/RfKey13\n{%- elif trigger.entity_id\
+        \ == \"input_boolean.gniazdo_w_ogrodzie_2\" and states.input_boolean.gniazdo_w_ogrodzie_2.state\
+        \ == \"off\" -%}\n        cmnd/RFBridge/RfKey14\n{% endif %}\n"
+      payload: ''
+### 
+### learn sonoff via console: backlog rfsync 4670; rflow 140; rfhigh 460; rfcode #FFD151; rfkey13 4
+- id: mqtt_change_switch_rf13_off
+  alias: Change switch state if RfKey 13 received
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "FFD151" }}'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.gniazdo_w_ogrodzie_2
+### learn sonoff via console: backlog rfsync 4680; rflow 140; rfhigh 460; rfcode #FFD55F; rfkey14 4
+- id: mqtt_change_switch_rf14_on
+  alias: Change switch state if RfKey 14 received
+  hide_entity: true
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: tele/RFBridge/RESULT
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.RfReceived.Data == "FFD55F" }}'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.gniazdo_w_ogrodzie_2
+###
 - id: mqtt_publish_doorbell
   alias: Publish doorbell change via MQTT to RF
   hide_entity: true

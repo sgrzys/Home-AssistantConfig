@@ -36,9 +36,15 @@ climat_max_cube:
 climat_biblioteka:
   name: Biblioteka
   entities:
-    - switch.gniazdo_s20
+    - switch.gniazdo_2
     - sensor.temperatura_w_bibliotece
     - sensor.wilgotnosc_w_bibliotece
+    - sensor.energia_biezaca_moc_45c889
+    - sensor.energia_biezace_napiecie_45c889
+    - sensor.energia_biezace_natezenie_45c889
+    - sensor.energia_cakowita_45c889
+    - sensor.energia_dzisiaj_45c889
+    - sensor.energia_wczoraj_45c889
 
 volvooncall:
   name: Volvo DW1AV32
@@ -76,7 +82,7 @@ sensor:
       - input_boolean.doorbell
       - input_boolean.w_pokoju_duze
       - input_boolean.w_pokoju_pojedyncze
-
+      - input_boolean.gniazdo_w_ogrodzie_2
 nc_plus:
     control: hidden
     name: Telewizja NC+

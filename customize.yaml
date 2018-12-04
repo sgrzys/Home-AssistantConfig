@@ -244,3 +244,5 @@ sensor.dw1av32_odometer:
   friendly_name: Volvo Stan licznika
 sensor.airpurifier_aqi:
   friendly_name: Jakość powietrza AQI
+input_boolean.gniazdo_w_ogrodzie_2:
+  friendly_name: Jeleń w ogrodzie
